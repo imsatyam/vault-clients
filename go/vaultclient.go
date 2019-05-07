@@ -13,21 +13,21 @@ func main() {
 	token := os.Getenv("VAULT_TOKEN")
 	vaultUri := os.Getenv("VAULT_ADDR")
 
-	config := &api.Config{
+	client, err := api.NewClient(&api.Config{
 		Address: vaultUri,
-	}
-	client, err := api.NewClient(config)
+	})
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 	client.SetToken(token)
 	c := client.Logical()
-	secret, err := c.Read("secret/vaultdemo")
+	secretValues, err := c.Read("secret/vaultdemo")
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
-	fmt.Println(secret)
-
+	for propName, propValue := range secretValues.Data {
+		fmt.Printf(" - %s -> %v\n", propName, propValue)
+	}
 }
