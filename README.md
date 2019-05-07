@@ -5,7 +5,7 @@ This repository provides simple clients to interact with Hashicorp Vault. The in
 
 - Please refer to the [installation guide](https://www.vaultproject.io/docs/install/) for installation of vault.
 
-- Once vault is installed, let us start it the **Dev server** using `vault server -dev` command. This is sufficient for our sample. You can refer to the [documentation](https://learn.hashicorp.com/vault/getting-started/dev-server) for more details.
+- Once vault is installed, let us start **Dev server** using `vault server -dev` command. This is sufficient for our sample. You can refer to the [documentation](https://learn.hashicorp.com/vault/getting-started/dev-server) for more details.
 
 - Starting the server provides us with two important information
     - Uri to connect to the vault.
